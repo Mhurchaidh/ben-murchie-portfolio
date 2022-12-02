@@ -1,14 +1,13 @@
 const selection = [1, 2, 3, 4];
 const seq = [];
-let seqLength = 7;
+let seqIterator = 1;
 
 function produceSequence() {
-    for (let i = 0; i < seqLength; i++){
+    for (let i = 0; i < seqIterator; i++){
         let randomIndex = Math.floor(Math.random() * selection.length);
         let item = selection[randomIndex];
         seq.push(item);
     }
-    seqLength++;
     console.log(seq);
     return seq;
 }
@@ -17,8 +16,8 @@ function produceSequence() {
 //     for (const element of seq){
 //         console.log(element);
 //     }
-//     setInterval(showSequence, 2000);
+//     // setInterval(showSequence, 2000);
 // }
 
 produceSequence();
-// showSequence();
+showSequence();
