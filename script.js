@@ -1,9 +1,9 @@
 const selection = [1, 2, 3, 4];
 const seq = [];
-let seqIterator = 1;
+let seqLength = 1;
 
 function produceSequence() {
-    for (let i = 0; i < seqIterator; i++){
+    for (let i = 0; i < seqLength; i++) {
         let randomIndex = Math.floor(Math.random() * selection.length);
         let item = selection[randomIndex];
         seq.push(item);
@@ -18,6 +18,6 @@ function produceSequence() {
 //     }
 //     // setInterval(showSequence, 2000);
 // }
-
+setInterval(produceSequence, 1000);
 produceSequence();
-showSequence();
+//showSequence();
