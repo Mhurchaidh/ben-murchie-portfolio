@@ -1,6 +1,6 @@
 const selection = [1, 2, 3, 4];
 const seq = [];
-let seqLength = 1;
+let seqLength = 3;
 
 function produceSequence() {
     for (let i = 0; i < seqLength; i++) {
@@ -9,15 +9,16 @@ function produceSequence() {
         seq.push(item);
     }
     console.log(seq);
-    return seq;
 }
 
-// function showSequence() {
-//     for (const element of seq){
-//         console.log(element);
-//     }
-//     // setInterval(showSequence, 2000);
-// }
-setInterval(produceSequence, 1000);
+const delay = async (ms = 1000) =>
+    new Promise(resolve => setTimeout(resolve, ms));
+
+async function showSequence() {
+    for (const element of seq) {
+        console.log(element);
+        await delay(1000);
+    }
+}
 produceSequence();
-//showSequence();
+showSequence();

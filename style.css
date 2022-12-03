@@ -1,1 +1,28 @@
-
+#square1 {
+    background-color: green;
+    border: none;
+    float: left;
+    top: 0;
+    padding: 200px 25%;
+}
+#square2 {
+    background-color: red;
+    border: none;
+    float: right;
+    top: 0;
+    padding: 200px 25%;
+}
+#square3 {
+    background-color: yellow;
+    border: none;
+    float: left;
+    bottom: 0;
+    padding: 200px 25%;
+}
+#square4 {
+    background-color: blue;
+    border: none;
+    float: right;
+    bottom: 0;
+    padding: 200px 25%;
+}
