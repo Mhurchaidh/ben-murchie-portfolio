@@ -26,20 +26,29 @@ const delay = async (ms = 1000) =>
 
 async function showSequence() {
     for (let element of seq) {
+        await delay(500);
         switch (element) {
             case button1:
-                element.style.backgroundColor = `rgba(0, 128, 0, 1)`;
+                element.style.backgroundColor = `rgba(0, 255, 0, 1)`;
+                await delay(400);
+                element.style.backgroundColor = `rgba(0, 255, 0, 0.3)`;
                 break;
             case button2:
-                element.style.backgroundColor = `rgba(205, 0, 0, 1)`;
+                element.style.backgroundColor = `rgba(255, 0, 0, 1)`;
+                await delay(400);
+                element.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
                 break;
             case button3:
-                element.style.backgroundColor = `rgba(205, 205, 0, 1)`;
+                element.style.backgroundColor = `rgba(255, 255, 0, 1)`;
+                await delay(400);
+                element.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
                 break;
             case button4:
-                element.style.backgroundColor = `rgba(0, 0, 205, 1)`;
+                element.style.backgroundColor = `rgba(0, 0, 255, 1)`;
+                await delay(400);
+                element.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
         }
-        await delay(1000);
+        
         console.log(element);
     }
 }
