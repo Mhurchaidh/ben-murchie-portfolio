@@ -1,4 +1,5 @@
 const seq = [];
+const playerSeq = [];
 let seqLength = 3;
 let button1;
 let button2;
@@ -50,5 +51,35 @@ async function showSequence() {
         }
         
         console.log(element);
+    }
+}
+
+async function testPlayerInput(e) {
+    if(playerSeq.length < seq.length) {
+        switch (e) {
+            case button1:
+                e.style.backgroundColor = `rgba(0, 255, 0, 1)`;
+                playerSeq.push(e);
+                await delay(200);
+                e.style.backgroundColor = `rgba(0, 255, 0, 0.3)`;
+                break;
+            case button2:
+                e.style.backgroundColor = `rgba(255, 0, 0, 1)`;
+                playerSeq.push(e);
+                await delay(200);
+                e.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
+                break;
+            case button3:
+                e.style.backgroundColor = `rgba(255, 255, 0, 1)`;
+                playerSeq.push(e);
+                await delay(200);
+                e.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
+                break;
+            case button4:
+                e.style.backgroundColor = `rgba(0, 0, 255, 1)`;
+                playerSeq.push(e);
+                await delay(200);
+                e.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
+        }
     }
 }
