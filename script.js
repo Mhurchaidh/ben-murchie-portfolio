@@ -6,7 +6,6 @@ let button1;
 let button2;
 let button3;
 let button4;
-let isMatching;
 let startButton = document.getElementById("readyup");
 
 function produceSequence() {
@@ -24,7 +23,6 @@ function produceSequence() {
         seq.push(item);
     }
     showSequence();
-    console.log(seq);
 }
 
 const delay = async (ms = 1000) =>
@@ -88,9 +86,6 @@ async function testPlayerInput(e) {
                 await delay(200);
                 e.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
         }
-        console.log(seq);
-        console.log(playerSeq);
-        
     }
     if(playerSeq.length === seq.length && seq.length > 0) {
         if(areEqual(playerSeq, seq)) {
