@@ -22,7 +22,9 @@
     float: right;
     padding: 200px 25%;
 }
-#ready {
+#readyup {
     position: absolute;
     margin: 0;
+    bottom: 10%;
+    left: 48%;
 }
