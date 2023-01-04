@@ -1,23 +1,16 @@
-let selection = [];
 let seq = [];
 let playerSeq = [];
-let seqLength = 1;
-let button1;
-let button2;
-let button3;
-let button4;
-let startButton = document.getElementById("readyup");
+let startLength = 1;
+const button1 = document.querySelector("#square1");
+const button2 = document.querySelector("#square2");
+const button3 = document.querySelector("#square3");
+const button4 = document.querySelector("#square4");
+const selection = [button1, button2, button3, button4];
+const startButton = document.querySelector("#readyup");
 
 function produceSequence() {
-    button1 = document.getElementById("square1");
-    button2 = document.getElementById("square2");
-    button3 = document.getElementById("square3");
-    button4 = document.getElementById("square4");
-    startButton = document.getElementById("readyup");
-    selection = [button1, button2, button3, button4];
     startButton.disabled = true;
-    
-    for (let i = 0; i < seqLength; i++) {
+    for (let i = 0; i < startLength; i++) {
         let randomIndex = Math.floor(Math.random() * selection.length);
         let item = selection[randomIndex];
         seq.push(item);
@@ -30,26 +23,26 @@ const delay = async (ms = 1000) =>
 
 async function showSequence() {
     for (let element of seq) {
-        await delay(500);
+        await delay(200);
         switch (element) {
             case button1:
                 element.style.backgroundColor = `rgba(0, 255, 0, 1)`;
-                await delay(400);
+                await delay(180);
                 element.style.backgroundColor = `rgba(0, 255, 0, 0.3)`;
                 break;
             case button2:
                 element.style.backgroundColor = `rgba(255, 0, 0, 1)`;
-                await delay(400);
+                await delay(180);
                 element.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
                 break;
             case button3:
                 element.style.backgroundColor = `rgba(255, 255, 0, 1)`;
-                await delay(400);
+                await delay(180);
                 element.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
                 break;
             case button4:
                 element.style.backgroundColor = `rgba(0, 0, 255, 1)`;
-                await delay(400);
+                await delay(180);
                 element.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
         }
     }
@@ -58,33 +51,32 @@ async function showSequence() {
     }
 }
 
-async function testPlayerInput(e) {
-    
+async function testPlayerInput(square) {
     if(playerSeq.length < seq.length) {
-        switch (e) {
+        switch (square) {
             case button1:
-                e.style.backgroundColor = `rgba(0, 255, 0, 1)`;
-                playerSeq.push(e);
-                await delay(200);
-                e.style.backgroundColor = `rgba(0, 255, 0, 0.3)`;
+                square.style.backgroundColor = `rgba(0, 255, 0, 1)`;
+                playerSeq.push(square);
+                await delay(100);
+                square.style.backgroundColor = `rgba(0, 255, 0, 0.3)`;
                 break;
             case button2:
-                e.style.backgroundColor = `rgba(255, 0, 0, 1)`;
-                playerSeq.push(e);
-                await delay(200);
-                e.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
+                square.style.backgroundColor = `rgba(255, 0, 0, 1)`;
+                playerSeq.push(square);
+                await delay(100);
+                square.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
                 break;
             case button3:
-                e.style.backgroundColor = `rgba(255, 255, 0, 1)`;
-                playerSeq.push(e);
-                await delay(200);
-                e.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
+                square.style.backgroundColor = `rgba(255, 255, 0, 1)`;
+                playerSeq.push(square);
+                await delay(100);
+                square.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
                 break;
             case button4:
-                e.style.backgroundColor = `rgba(0, 0, 255, 1)`;
-                playerSeq.push(e);
-                await delay(200);
-                e.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
+                square.style.backgroundColor = `rgba(0, 0, 255, 1)`;
+                playerSeq.push(square);
+                await delay(100);
+                square.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
         }
     }
     if(playerSeq.length === seq.length && seq.length > 0) {
@@ -116,10 +108,10 @@ async function playerCorrect() {
     button2.style.backgroundColor = `rgba(255, 0, 0, 0.3)`;
     button3.style.backgroundColor = `rgba(255, 255, 0, 0.3)`;
     button4.style.backgroundColor = `rgba(0, 0, 255, 0.3)`;
-    startButton.disabled = false;
     for (let button of selection) {
         button.disabled = true;
     }
+    produceSequence()
 }
 
 async function playerIncorrect() {

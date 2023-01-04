@@ -24,7 +24,9 @@
 }
 #readyup {
     position: absolute;
+    width: 10%;
+    height: 5%;
     margin: 0;
-    bottom: 10%;
-    left: 48%;
+    bottom: 5%;
+    left: 45%;
 }
